@@ -88,3 +88,44 @@ def diffusion_harness_step(graph, spec):
 
     # Trotter Step 2: Semantic
     return trotter_combine(refined, focus="semantics")
+
+    Features & Benefits
+
+Speed: Diffusion backbone provides massive throughput gains.
+Modularity & Robustness: Trotterization ensures systematic coverage; spallation prevents monolithic failures.
+Explorability: Spallation acts as a built-in diversity mechanism (similar to MCMC or evolutionary methods).
+Debuggability: Granular spallation makes it easier to isolate and fix issues.
+Scalability: Works with small or large models; graph-based approach helps manage long contexts.
+
+
+Installation & Usage
+Bashpip install diffusion-harness  # (placeholder - coming soon)
+Pythonfrom diffusion_harness import Harness
+
+harness = Harness(
+    diffusion_model="mercury-coder",      # or "grok-build"
+    base_llm="grok-4",                    # for non-diffusion parts
+    trotter_order=2,                      # 1 or 2 (Lie or Strang)
+    spallation_rate=0.15,
+    grain_size="statement"
+)
+
+result = harness.synthesize(spec="Implement a fast RAG pipeline with caching...", max_iterations=5)
+
+Roadmap
+
+Advanced graph representations (e.g., hypergraphs for cross-file dependencies).
+Adaptive Trotter step sizing based on error estimates (inspired by quantum convergence bounds).
+Integration with execution feedback loops.
+Support for more diffusion models as they emerge.
+
+
+References & Inspiration
+
+Diffusion LLMs: Mercury family and related work on parallel text generation.
+Trotterization theory, particularly for challenging (unbounded/singular) systems.
+Code spallation: Novel technique introduced in this framework.
+
+Contribute — This is an experimental open approach. PRs welcome for graph libs, new spallation strategies, and diffusion adapters.
+
+Built with curiosity for better code synthesis.
