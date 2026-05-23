@@ -88,6 +88,7 @@ def diffusion_harness_step(graph, spec):
 
     # Trotter Step 2: Semantic
     return trotter_combine(refined, focus="semantics")
+```
 
     Features & Benefits
 
